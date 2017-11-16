@@ -1,0 +1,11 @@
+CREATE TABLE Contracts(
+Contract_ID varchar(35) Primary Key NOT NULL,
+Contract_Date_Start DATE NOT NULL,
+Contract_Date_End DATE NOT NULL,
+Contract_Discription VARCHAR(MAX) NOT NULL,/*Description Max Length*/
+Contract_Special_Instructions VARCHAR(MAX) NOT NULL,/*Instructions Max Length*/
+Contract_Start_Signature VARCHAR(2) NOT NULL,/*Yes/No for choices*/
+Client_Start_Signature VARCHAR(2) NOT NULL,
+Contract_Final_Signature VARCHAR(2) NOT NULL,
+Client_Final_Signature VARCHAR(2) NOT NULL,/*All of these could be blobs if there was 											a digital signature converted and stored*/
+);

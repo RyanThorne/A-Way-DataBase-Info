@@ -1,0 +1,23 @@
+USE A_WAY; 
+
+		/*This Employee data focuses on age as well as sex 
+		of the employees, this could be used later to add Gender 
+		Specific job details.. */
+
+	CREATE TABLE Employees ( 
+Employee_Id int Primary Key NOT NULL,
+Employee_First_Name Varchar(35) NOT NULL,
+Employee_Last_Name Varchar(35) NOT NULL,
+Employee_Addres VARCHAR(255) NOT NULL, 
+Employee_City VARCHAR(35) NOT NULL,
+Employee_State VARCHAR(2) NOT NULL,
+Employee_Zip VARCHAR(5) NOT NULL,
+Employee_Area_Code VARCHAR(3)NOT NULL,
+Employee_Phone_Number VARCHAR(8) NOT NULL,
+Employee_Gender VARCHAR(1) NOT NULL,
+	Employee_Age int,);
+
+
+
+
+					Insert into Employees Values(1,'Ryan','Thorne','36 Lancaster RD','Bristol','CT','06010','860','712-3277','M',34);
