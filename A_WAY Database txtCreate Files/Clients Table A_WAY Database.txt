@@ -11,7 +11,7 @@ Cli_Zip VARCHAR(5) NOT NULL,
 Cli_Area_Code VARCHAR(3)NOT NULL,
 Cli_Phone_Number VARCHAR(8) NOT NULL,
 Cli_Designation CHAR(4),
-Primary Key(Client_Id),
+Primary Key(Cli_Id),
 );
 
 
