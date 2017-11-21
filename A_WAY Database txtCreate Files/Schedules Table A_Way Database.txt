@@ -1,0 +1,11 @@
+USE [A_WAY];
+
+CREATE TABLE Schedules (
+Schedules_id INT NOT NULL AUTO_INCREMENT,
+Start_Date DATE,
+Finish_Date DATE,
+Amended_Alt_Date DATE,
+PRIMARY KEY (Schedules_id)
+);
+
+INSERT INTO Schedules Values('0001','01-02-2017','02-01-2017','01-04-2017');
