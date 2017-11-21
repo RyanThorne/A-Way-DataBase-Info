@@ -1,8 +1,10 @@
-USE A_WAY; 
+USE [A_WAY]; 
 
-		/*This Employee data focuses on age as well as sex 
-		of the employees, this could be used later to add Gender 
-		Specific job details.. */
+	        /*<<<<<<<<<<<<<<<<<<<<<<<<<
+		/ Employee Raw Data Table ^
+		/ Creators Ryan T. Ben D. ^ 
+		/ Version 1.0             ^
+		>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
 	CREATE TABLE Employees ( 
 Employee_Id int Primary Key NOT NULL,
@@ -17,7 +19,19 @@ Employee_Phone_Number VARCHAR(8) NOT NULL,
 Employee_Gender VARCHAR(1) NOT NULL,
 	Employee_Age int,);
 
+/*Trial Data to test out the flow and answer Ad Hoc's at a later time by the professor, MIN of 5*/
 
-
-
-					Insert into Employees Values(1,'Ryan','Thorne','36 Lancaster RD','Bristol','CT','06010','860','712-3277','M',34);
+	Insert into Employees Values(1,'Ryan','Thorne','36 Lancaster RD','Bristol','CT','06010','860','712-3277','M',34);
+	/*2.Needed 
+	  3.Needed
+	  4.Needed
+	  5.Needed*/
+	  
+	/*Constraints if Needed?
+	<
+	<
+	<
+	<
+	<
+	<                      */
+	
