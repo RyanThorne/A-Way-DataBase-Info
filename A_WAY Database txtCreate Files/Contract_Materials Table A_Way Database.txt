@@ -1,0 +1,15 @@
+USE [A_WAY]; 
+
+CREATE TABLE Contract_Materials (
+CoMa_id INT NOT NULL AUTO_INCREMENT,
+CoMa_Name VARCHAR(255) NOT NULL,
+CoMa_Type VARCHAR(45) NOT NULL,
+CoMa_Quantity INT NOT NULL,
+CoMa_Price DECIMAL(9,2),
+CoMa_Purchased_Date DATE,
+MOH_id INT,
+PRIMARY KEY (CoMa_id),
+FOREIGN KEY (MOH_id) REFERENCES MOH(MOH_id)
+);
+
+INSERT INTO Contract_Materials('001','Hammmer','Hardware','1','19.99','01-02-2017','001');
