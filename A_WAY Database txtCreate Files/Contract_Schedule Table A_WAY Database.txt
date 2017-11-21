@@ -1,0 +1,13 @@
+USE [A_WAY];  
+
+
+CREATE TABLE Contract_Schedule (  
+Contracts_id INT NOT NULL,
+Employees_id INT NOT NULL,
+Schedules_id INT NOT NULL,
+Hours TIME NOT NULL,
+FOREIGN KEY (Contracts_id) REFERENCES Contracts(Contracts_id),
+FOREIGN KEY (Employees_id) REFERENCES Employees(Employees_id),
+FOREIGN KEY (Schedules_id) REFERENCES Schedules(Schedules_id),
+PRIMARY KEY (Contracts_id+Employees_id),
+); 
