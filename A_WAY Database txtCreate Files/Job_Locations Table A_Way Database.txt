@@ -1,0 +1,15 @@
+Use [A_WAY];
+
+CREATE TABLE Job_Locations(
+Job_Locations_id INT AUTO_INCREMENT NOT NULL,
+Job_Address VARCHAR(255) NOT NULL,
+Job_City VARCHAR(35) NOT NULL,
+Job_State VARCHAR(2) NOT NULL,
+Job_Zip VARCHAR(5) NOT NULL,
+Job_Special_Instructions VARCHAR(1000),
+Schedules_id INT NOT NULL,
+PRIMARY KEY (Job_Locations_id),
+FOREIGN KEY (Schedules_id) REFERENCES Schedules(Schedules_id)
+); 
+
+INSERT INTO Job_Locations Values('0001','78 Parse Rd.','Bristol','CT','06010','Paint the walls blue','0001');

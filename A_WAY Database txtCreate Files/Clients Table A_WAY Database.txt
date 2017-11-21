@@ -1,19 +1,19 @@
 USE A_WAY; 
 
-	CREATE TABLE Clients ( 
-Client_Id int Primary Key NOT NULL,
-Client_First_Name Varchar(35) NOT NULL,
-Client_Last_Name Varchar(35) NOT NULL,
-Client_Addres VARCHAR(255) NOT NULL, 
-Client_City VARCHAR(35) NOT NULL,
-Client_State VARCHAR(2) NOT NULL,
-Client_Zip VARCHAR(5) NOT NULL,
-Client_Area_Code VARCHAR(3)NOT NULL,
-Client_Phone_Number VARCHAR(8) NOT NULL,
-Client_Gender VARCHAR(1) NOT NULL,
-	Client_Age int,);
+	CREATE TABLE Clients( 
+Cli_Id int NOT NULL AUTO_INCREMENT,
+Cli_FName Varchar(35) NOT NULL,
+Cli_LName Varchar(35) NOT NULL,
+Cli_Address VARCHAR(255) NOT NULL, 
+Cli_City VARCHAR(35) NOT NULL,
+Cli_State VARCHAR(2) NOT NULL,
+Cli_Zip VARCHAR(5) NOT NULL,
+Cli_Area_Code VARCHAR(3)NOT NULL,
+Cli_Phone_Number VARCHAR(8) NOT NULL,
+Cli_Designation CHAR(4),
+Primary Key(Client_Id),
+);
 
 
 
-
-					Insert into Clients Values(1,'Rob','Stagis','34 Plainer rd','Plainville','CT','06062','860','953-1344','M',54);
+					Insert into Clients Values(1,'Rob','Stagis','34 Plainer rd','Plainville','CT','06062','860','953-1344');

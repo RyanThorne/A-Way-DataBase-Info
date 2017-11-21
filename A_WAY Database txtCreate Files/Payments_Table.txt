@@ -1,0 +1,12 @@
+Useing [A_WAY];
+
+CREATE TABLE PAYMENTS(
+Payment_ID INT NOT NULL AUTO_INCREMENT, 
+First_Payment_Amount DECIMAL(9,2) NOT NULL,
+First_Payment_Date NOT NULL,
+Second_Payment_Amount DECIMAL(9,2) NOT NULL,
+Second_Payment_Date NOT NULL,
+Client_ID INT NOT NULL, 
+
+PRIMARY KEY(Payment_ID),
+Foreign KEY(Client_ID) REFERENCE Clients(Client_ID)ON UPDATE CASCADE);

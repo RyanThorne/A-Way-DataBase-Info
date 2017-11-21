@@ -1,0 +1,11 @@
+Useing [A_WAY];
+
+CREATE TABLE Licenses(
+License_ID INT NOT NULL AUTO_INCREMENT, 
+Type VARCHAR(45) NOT NULL,
+Licenses_Num VARCHAR(11) NOT NULL,
+Lic_Expiration DATE NOT NULL, 
+Employee_ID INT NOT NULL, 
+PRIMARY KEY(License_ID),
+Foreign KEY(Employee_ID) REFERENCE Employees(Employee_ID)ON UPDATE CASCADE
+);
