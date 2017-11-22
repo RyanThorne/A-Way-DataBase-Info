@@ -2,12 +2,12 @@ USE [A_WAY];
 
 
 CREATE TABLE Contract_Schedule (  
-Contracts_id INT NOT NULL,
-Employees_id INT NOT NULL,
-Schedules_id INT NOT NULL,
+Con_id INT NOT NULL,
+Emp_id INT NOT NULL,
+Schedule_id INT NOT NULL,
 Hours TIME NOT NULL,
-FOREIGN KEY (Contracts_id) REFERENCES Contracts(Contracts_id),
-FOREIGN KEY (Employees_id) REFERENCES Employees(Employees_id),
-FOREIGN KEY (Schedules_id) REFERENCES Schedules(Schedules_id),
-PRIMARY KEY (Contracts_id+Employees_id),
+FOREIGN KEY (Con_id) REFERENCES Contracts(Con_id),
+FOREIGN KEY (Emp_id) REFERENCES Employees(Emp_id),
+FOREIGN KEY (Schedule_id) REFERENCES Schedules(Schedule_id),
+PRIMARY KEY (Con_id+Emp_id),
 ); 
