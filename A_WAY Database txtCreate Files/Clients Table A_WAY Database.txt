@@ -14,4 +14,4 @@ Cli_Designation CHAR(4),
 Primary Key(Cli_ID)
 );
 
-Insert into Clients Values(1,'Rob','Stagis','34 Plainer rd','Plainville','CT','06062','860','953-1344');
+Insert into Clients Values(1,'Rob','Stagis','34 Plainer rd','Plainville','CT','06062','860','953-1344','Mr.');
