@@ -1,4 +1,4 @@
-Useing [A_WAY];
+Use [A_WAY];
 
 CREATE TABLE Licenses(
 Lic_Num VARCHAR(11) NOT NULL, 
