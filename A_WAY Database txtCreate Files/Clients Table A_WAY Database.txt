@@ -8,7 +8,7 @@ Cli_Address VARCHAR(255) NOT NULL,
 Cli_City VARCHAR(35) NOT NULL,
 Cli_State VARCHAR(2) NOT NULL,
 Cli_Zip VARCHAR(5) NOT NULL,
-Cli_Area_Code VARCHAR(3)NOT NULL,
+Cli_Phone_Area_Code VARCHAR(3)NOT NULL,
 Cli_Phone_Number VARCHAR(8) NOT NULL,
 Cli_Designation CHAR(4),
 Primary Key(Cli_ID)
