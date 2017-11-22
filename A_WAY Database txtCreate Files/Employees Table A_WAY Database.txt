@@ -6,18 +6,22 @@ USE [A_WAY];
 		/ Version 1.0             ^
 		>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
-	CREATE TABLE Employees ( 
-Employee_Id int Primary Key NOT NULL,
-Employee_First_Name Varchar(35) NOT NULL,
-Employee_Last_Name Varchar(35) NOT NULL,
-Employee_Addres VARCHAR(255) NOT NULL, 
-Employee_City VARCHAR(35) NOT NULL,
-Employee_State VARCHAR(2) NOT NULL,
-Employee_Zip VARCHAR(5) NOT NULL,
-Employee_Area_Code VARCHAR(3)NOT NULL,
-Employee_Phone_Number VARCHAR(8) NOT NULL,
-Employee_Gender VARCHAR(1) NOT NULL,
-	Employee_Age int,);
+CREATE TABLE Employees( 
+Emp_ID INT NOT NULL AUTO_INCREMENT,
+Emp_FName Varchar(35) NOT NULL,
+Emp_LName Varchar(35) NOT NULL,
+Emp_Address VARCHAR(255) NOT NULL, 
+Emp_City VARCHAR(35) NOT NULL,
+Emp_State VARCHAR(2) NOT NULL,
+Emp_Zip VARCHAR(5) NOT NULL,
+Emp_Phone_Area_Code VARCHAR(3)NOT NULL,
+Emp_Phone_Number VARCHAR(8) NOT NULL,
+Emp_Licensed CHAR(1),
+Emp_Sales_Rep CHAR(1),
+Sale_Commission_Type VARCHAR(100),
+PRIMARY KEY(Emp_ID)
+FOREIGN KEY(Sale_Commission_Type) REFERENCES Sale_Commission_Rate(Sale_Commission_Type)
+);
 
 /*Trial Data to test out the flow and answer Ad Hoc's at a later time by the professor, MIN of 5*/
 
