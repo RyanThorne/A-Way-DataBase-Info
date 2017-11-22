@@ -12,4 +12,4 @@ PRIMARY KEY (Job_Locations_id),
 FOREIGN KEY (Schedules_id) REFERENCES Schedules(Schedules_id)
 ); 
 
-INSERT INTO Job_Locations Values('0001','78 Parse Rd.','Bristol','CT','06010','Paint the walls blue','0001');
+INSERT INTO Job_Locations Values(1,'78 Parse Rd.','Bristol','CT','06010','Paint the walls blue',1);
