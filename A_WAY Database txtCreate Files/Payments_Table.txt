@@ -1,12 +1,15 @@
-Useing [A_WAY];
+Use [A_WAY];
 
-CREATE TABLE PAYMENTS(
-Payment_ID INT NOT NULL AUTO_INCREMENT, 
+CREATE TABLE Payments(
+Payment_ID INT NOT NULL AUTO_INCREMENT,
+Payment_Type VARCHAR(20) NOT NULL,
 First_Payment_Amount DECIMAL(9,2) NOT NULL,
 First_Payment_Date NOT NULL,
 Second_Payment_Amount DECIMAL(9,2) NOT NULL,
 Second_Payment_Date NOT NULL,
-Client_ID INT NOT NULL, 
+Cli_ID INT NOT NULL,
 
 PRIMARY KEY(Payment_ID),
-Foreign KEY(Client_ID) REFERENCE Clients(Client_ID)ON UPDATE CASCADE);
+Foreign KEY(Client_ID) REFERENCE Clients(Cli_ID)ON UPDATE CASCADE);
+
+INSERT INTO Payments Values(1,'Credit Card',50.00,'2017-04-11',50.00,'2017-05-02',1);
