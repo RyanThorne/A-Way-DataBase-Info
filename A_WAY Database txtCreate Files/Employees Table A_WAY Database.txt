@@ -14,6 +14,7 @@ Emp_Address VARCHAR(255) NOT NULL,
 Emp_City VARCHAR(35) NOT NULL,
 Emp_State VARCHAR(2) NOT NULL,
 Emp_Zip VARCHAR(5) NOT NULL,
+Emp_Email VARCHAR(100) NOT NULL,
 Emp_Phone_Area_Code VARCHAR(3)NOT NULL,
 Emp_Phone_Number VARCHAR(8) NOT NULL,
 Emp_Licensed CHAR(1),
@@ -25,7 +26,7 @@ FOREIGN KEY(Sale_Commission_Type) REFERENCES Sale_Commission_Rate(Sale_Commissio
 
 /*Trial Data to test out the flow and answer Ad Hoc's at a later time by the professor, MIN of 5*/
 
-	Insert into Employees Values(1,'Ryan','Thorne','36 Lancaster RD','Bristol','CT','06010','860','712-3277','y','y',Default);
+	Insert into Employees Values(1,'Ryan','Thorne','36 Lancaster RD','Bristol','CT','06010','thorne.spp@gmail.com','860','712-3277','y','y',DEFAULT);
 	/*2.Needed 
 	  3.Needed
 	  4.Needed
