@@ -1,11 +1,12 @@
 Useing [A_WAY];
 
 CREATE TABLE Licenses(
-License_ID INT NOT NULL AUTO_INCREMENT, 
-Type VARCHAR(45) NOT NULL,
-Licenses_Num VARCHAR(11) NOT NULL,
+Lic_Num VARCHAR(11) NOT NULL, 
+Lic_Type VARCHAR(45) NOT NULL,
 Lic_Expiration DATE NOT NULL, 
-Employee_ID INT NOT NULL, 
-PRIMARY KEY(License_ID),
-Foreign KEY(Employee_ID) REFERENCE Employees(Employee_ID)ON UPDATE CASCADE
+Emp_ID INT NOT NULL, 
+PRIMARY KEY(Lic_ID),
+Foreign KEY(Emp_ID) REFERENCE Employees(Emp_ID)ON UPDATE CASCADE
 );
+
+INSERT INTO Licenses Values('A1234-67890','Electrician','01-04-2020',1);
