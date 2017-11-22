@@ -1,4 +1,4 @@
-Useing [A_WAY];
+Use [A_WAY];
 
 CREATE TABLE Sale_Commission_Rate(
 Sale_Commission_Rate Decimal(4,2) NOT NULL,
@@ -6,3 +6,5 @@ Sale_Commission_Type VARCHAR(100) NOT NULL,
 PRIMARY KEY(Sale_Commission_Type)
 
 );
+
+INSERT INTO Sale_Commission_Rate Values(50.00,'Flat Rate-Lead Found');
