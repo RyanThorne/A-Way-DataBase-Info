@@ -12,4 +12,4 @@ PRIMARY KEY (CoMa_id),
 FOREIGN KEY (MOH_id) REFERENCES MOH(MOH_id)
 );
 
-INSERT INTO Contract_Materials('001','Hammmer','Hardware','1','19.99','01-02-2017','001');
+INSERT INTO Contract_Materials Values(1,'Hammmer','Hardware',1,'19.99','2017-02-01',1);
