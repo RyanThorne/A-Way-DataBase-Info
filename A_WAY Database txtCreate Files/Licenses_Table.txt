@@ -9,4 +9,4 @@ PRIMARY KEY(Lic_ID),
 Foreign KEY(Emp_ID) REFERENCE Employees(Emp_ID)ON UPDATE CASCADE
 );
 
-INSERT INTO Licenses Values('A1234-67890','Electrician','01-04-2020',1);
+INSERT INTO Licenses Values('A1234-67890','Electrician','2020-04-01',1);
