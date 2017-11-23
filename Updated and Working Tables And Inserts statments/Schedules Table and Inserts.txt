@@ -1,0 +1,10 @@
+USE [A_WAY];
+/*Drop Table Schedules; Remove if needeed*/  
+CREATE TABLE Schedules (
+Schedule_id INT IDENTITY(1,1)PRIMARY KEY,
+Start_Date DATE,
+Finish_Date DATE,
+Amended_Alt_Date DATE,
+);
+
+INSERT INTO Schedules Values('2017-01-02','2017-01-03','2017-02-03');

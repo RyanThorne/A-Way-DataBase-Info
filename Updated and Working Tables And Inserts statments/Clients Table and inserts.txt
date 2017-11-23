@@ -1,0 +1,15 @@
+USE [A_WAY]; 
+ /*DROP TABLE Clients; "If needed remove Everything in quotes and Text marks"
+    CREATE TABLE Clients( 
+Cli_ID INT IDENTITY(1,1) PRIMARY KEY,
+Cli_FName VARCHAR(35) NOT NULL,
+Cli_LName VARCHAR(35) NOT NULL,
+Cli_Address VARCHAR(255) NOT NULL, 
+Cli_City VARCHAR(35) NOT NULL,
+Cli_State VARCHAR(2) NOT NULL,
+Cli_Zip VARCHAR(5) NOT NULL,
+Cli_Phone_Area_Code VARCHAR(3)NOT NULL,
+Cli_Phone_Number VARCHAR(8) NOT NULL,
+Cli_Designation CHAR(4));*/
+
+Insert into Clients Values('Rob','Stagis','34 Plainer rd','Plainville','CT','06062','860','953-1344','Mr.');

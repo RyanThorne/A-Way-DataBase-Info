@@ -1,0 +1,14 @@
+Use [A_Way];
+/*Drop Table Contract_Tools;*/
+Create Table Contract_Tools(
+CoTo_ID INT IDENTITY(1,1)PRIMARY KEY,
+CoTo_Name VARCHAR(255) NOT NULL, 
+CoTo_Type VARCHAR(45) NOT NULL,
+CoTo_Price DECIMAL(9,2) NOT NULL, 
+CoTo_Quantity INT NOT NULL,
+CoTo_Purchased_Date DATE NOT NULL,
+TOH_ID INT, 
+FOREIGN KEY(TOH_ID) REFERENCES TOH(TOH_ID)
+);
+
+INSERT INTO Contract_Tools Values('Ballpin Hammer','Hammer',25.99,1,'2017-02-01',DEFAULT);

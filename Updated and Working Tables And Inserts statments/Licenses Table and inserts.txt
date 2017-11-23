@@ -1,0 +1,13 @@
+Use [A_WAY];
+
+/*DROP TABLE Licenses;*/
+CREATE TABLE Licenses(
+Lic_Num VARCHAR(11) NOT NULL PRIMARY KEY, 
+Lic_Type VARCHAR(45) NOT NULL,
+Lic_Expiration DATE NOT NULL, 
+Emp_ID INT, 
+
+Foreign KEY(Emp_ID) REFERENCES Employees(Emp_ID)ON UPDATE CASCADE
+);
+
+INSERT INTO Licenses Values('HIC-0678971','Home-Improvment-Contractors LIC','2018-11-01',Default);

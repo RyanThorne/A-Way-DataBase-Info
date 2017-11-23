@@ -1,0 +1,15 @@
+Use [A_WAY];
+/*DROP TABLE Payments;*/
+
+CREATE TABLE Payments(
+Payment_ID INT IDENTITY(1,1) PRIMARY KEY,
+Payment_Type VARCHAR(20) NOT NULL,
+First_Payment_Amount DECIMAL(9,2) NOT NULL,
+First_Payment_Date DATE NOT NULL,
+Second_Payment_Amount DECIMAL(9,2) NOT NULL,
+Second_Payment_Date DATE NOT NULL,
+Cli_ID INT NOT NULL,
+
+Foreign KEY(Cli_ID) REFERENCES Clients(Cli_ID)ON UPDATE CASCADE);
+
+INSERT INTO Payments Values('Credit Card',50.00,'2017-04-11',50.00,'2017-05-02',1);

@@ -1,0 +1,16 @@
+Use [A_WAY];
+
+/*Drop Table Job_Locations; If needed*/
+
+CREATE TABLE Job_Locations(
+Job_Locations_id INT IDENTITY(1,1) PRIMARY KEY,
+Job_Address VARCHAR(255) NOT NULL,
+Job_City VARCHAR(35) NOT NULL,
+Job_State VARCHAR(2) NOT NULL,
+Job_Zip VARCHAR(5) NOT NULL,
+Job_Special_Instructions VARCHAR(1000),
+Schedule_id INT NOT NULL,
+FOREIGN KEY (Schedule_id) REFERENCES Schedules(Schedule_id) ON UPDATE CASCADE 
+); 
+
+INSERT INTO Job_Locations Values('78 Parse Rd.','Bristol','CT','06010','Paint the walls blue',1);

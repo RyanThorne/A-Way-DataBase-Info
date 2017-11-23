@@ -1,0 +1,12 @@
+
+USE [A_WAY];  
+
+/*DROP TABLE Contract_Schedules; If needed*/
+CREATE TABLE Contract_Schedules (  
+Total_Hours INT NOT NULL,
+Con_Id INT FOREIGN KEY(Con_Id) REFERENCES Contracts(Con_Id) ON update Cascade,
+Emp_Id INT  FOREIGN KEY(Emp_Id) REFERENCES Employees(Emp_Id) ON update Cascade,
+Schedule_Id INT FOREIGN KEY(Schedule_Id) REFERENCES Schedules(Schedule_Id) ON update Cascade
+); 
+
+INSERT INTO Contract_Schedules VALUES( 10 , DEFAULT, DEFAULT, DEFAULT );
