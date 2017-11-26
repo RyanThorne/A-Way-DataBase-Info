@@ -1,4 +1,4 @@
-USE [A_WAY]; 
+USE [A_WAY];Â 
 
 CREATE TABLE Contract_Materials (
 CoMa_id INT IDENTITY(1,1) PRIMARY KEY,
@@ -7,8 +7,7 @@ CoMa_Type VARCHAR(45) NOT NULL,
 CoMa_Quantity INT NOT NULL,
 CoMa_Price DECIMAL(9,2),
 CoMa_Purchased_Date DATE,
-MOH_id INT,
-FOREIGN KEY (MOH_id) REFERENCES MOH(MOH_id)
+MOH_id INT FOREIGN KEY REFERENCES MOH(MOH_id) On updaate cascade
 );
 
 INSERT INTO Contract_Materials Values('Hammmer','Hardware',1,'19.99','2017-02-01',1);
