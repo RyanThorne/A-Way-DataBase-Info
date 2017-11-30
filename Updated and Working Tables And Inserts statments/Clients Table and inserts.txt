@@ -1,6 +1,7 @@
 USE [A_WAY]; 
- /*DROP TABLE Clients; "If needed remove Everything in quotes and Text marks"*/
-    CREATE TABLE Clients( 
+/*DROP TABLE Clients; "If needed remove Everything in quotes and Text marks"*/
+    
+ CREATE TABLE Clients( 
 Cli_ID INT IDENTITY(1,1) PRIMARY KEY,
 Cli_FName VARCHAR(35) NOT NULL,
 Cli_LName VARCHAR(35) NOT NULL,
@@ -12,4 +13,8 @@ Cli_Phone_Area_Code VARCHAR(3)NOT NULL,
 Cli_Phone_Number VARCHAR(8) NOT NULL,
 Cli_Designation CHAR(4));
 
-Insert into Clients Values('Rob','Stagis','34 Plainer rd','Plainville','CT','06062','860','953-1344','Mr.');
+Insert into Clients Values('Rob','Stagis','34 Plainer rd','Plainville','CT','06062','860','953-1344','Mr.');/*Contract 1*/
+Insert into Clients Values('Susan','Widlak','226 Middle Town Rd','Berlin','CT','06037','860','518-0432','Ms.');/*Contract 2*/
+Insert into Clients Values('Melisa','Widlak','88 Sunset Ave','Plainville','CT','06062','860','518-0792','Ms.');/*Contract 3*/
+Insert into Clients Values('Jack','Rider','164 E Main St','Plainville','CT','06062','860','573-1131','Mr.');/*Contract 4*/
+Insert into Clients Values('Shawn','Ruest','52 Lancaster','Bristol','CT','06010','860','712-6644','Mr.');/*Contract 5*/
