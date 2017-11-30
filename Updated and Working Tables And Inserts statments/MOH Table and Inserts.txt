@@ -7,7 +7,7 @@ MOH_Type VARCHAR(45) NOT NULL,
 MOH_Price Decimal(9,2) NOT NULL,
 MOH_Quantity INT NOT NULL,
 MOH_Purchased_Date DATE NOT NULL, 
-Con_ID INT NOT NULL, 
-Foreign KEY(Con_ID) REFERENCES Contracts(Con_ID)ON UPDATE CASCADE);
+Con_ID INT NOT NULL Foreign KEY REFERENCES Contracts(Con_ID) ON UPDATE CASCADE
+);
 
 INSERT INTO MOH Values('Floor board','Wood',5.00,5,'2020-04-11',1);
