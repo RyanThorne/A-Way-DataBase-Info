@@ -5,6 +5,7 @@ USE [A_WAY];
 		/ Creators Ryan T. Ben D. ^ 
 		/ Version 1.0             ^
 		>>>>>>>>>>>>>>>>>>>>>>>>>*/
+/*Drop Table A_WAY;*/
 
 CREATE TABLE Employees( 
 Emp_ID INT IDENTITY(1,1) PRIMARY KEY,
@@ -19,9 +20,7 @@ Emp_Phone_Area_Code VARCHAR(3)NOT NULL,
 Emp_Phone_Number VARCHAR(8) NOT NULL,
 Emp_Licensed CHAR(1),
 Emp_Sales_Rep CHAR(1),
-Sale_Commission_Type VARCHAR(100),
-
-FOREIGN KEY(Sale_Commission_Type) REFERENCES Sale_Commission_Rate(Sale_Commission_Type)
+Sale_Commission_Type VARCHAR(100) FOREIGN KEY REFERENCES Sale_Commission_Rate(Sale_Commission_Type)
 );
 
 /*Trial Data to test out the flow and answer Ad Hoc's at a later time by the professor, MIN of 5*/
