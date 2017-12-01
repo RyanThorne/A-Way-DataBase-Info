@@ -1,0 +1,8 @@
+My Projectis about 
+LIst the entities 
+and then Put model up erd 
+Import database into system 
+Then Display views asked for 
+Attachview to the file. create table 
+Display view 
+And insert statments 
