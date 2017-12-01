@@ -25,7 +25,7 @@ Sale_Commission_Type VARCHAR(100) FOREIGN KEY REFERENCES Sale_Commission_Rate(Sa
 
 /*Trial Data to test out the flow and answer Ad Hoc's at a later time by the professor, MIN of 5*/
 
-	Insert into Employees Values(1,'Ryan','Thorne','36 Lancaster RD','Bristol','CT','06010','thorne.spp@gmail.com','860','712-3277','y','y',DEFAULT);
+	Insert into Employees Values('Ryan','Thorne','36 Lancaster RD','Bristol','CT','06010','thorne.spp@gmail.com','860','712-3277','y','y',DEFAULT);
 	/*2.Needed 
 	  3.Needed
 	  4.Needed
