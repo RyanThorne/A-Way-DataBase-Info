@@ -1,0 +1,189 @@
+USE [A_WAY]; 
+
+/*
+DROP TABLE Contract_Materials;
+DROP TABLE Contract_Schedules
+DROP TABLE Contract_Tools;
+DROP TABLE Contracts;
+DROP TABLE Employees;
+DROP TABLE Job_Locations;
+DROP TABLE Licenses;
+DROP TABLE MOH;
+DROP TABLE Payments;
+DROP TABLE Sales_Commission_Rate;
+DROP TABLE Schedules;
+DROP TABLE TOH;
+DROP TABLE Clients;
+*/
+
+CREATE TABLE Clients( 
+Cli_ID INT IDENTITY(1,1) PRIMARY KEY,
+Cli_FName VARCHAR(35) NOT NULL,
+Cli_LName VARCHAR(35) NOT NULL,
+Cli_Address VARCHAR(255) NOT NULL, 
+Cli_City VARCHAR(35) NOT NULL,
+Cli_State VARCHAR(2) NOT NULL,
+Cli_Zip VARCHAR(5) NOT NULL,
+Cli_Phone_Area_Code VARCHAR(3)NOT NULL,
+Cli_Phone_Number VARCHAR(8) NOT NULL,
+Cli_Designation CHAR(4));
+
+　
+CREATE TABLE Sales_Commission_Rate(
+Sale_Commission_Rate DECIMAL(4,2) NOT NULL,
+Sale_Commission_Type VARCHAR(100) NOT NULL PRIMARY KEY
+);
+
+CREATE TABLE Schedules (
+Schedule_id INT IDENTITY(1,1)PRIMARY KEY,
+Start_Date DATE,
+Finish_Date DATE,
+Amended_Alt_Date DATE,
+);
+
+CREATE TABLE Contracts(
+Con_ID INT IDENTITY(1,1)PRIMARY KEY,
+Con_Number VARCHAR(35) NOT NULL, /* Contract number is always different and could be the same after the new year*/
+Con_Date_Start DATE NOT NULL,
+Con_Date_End DATE NOT NULL,
+Con_Description VARCHAR(MAX) NOT NULL,/*Description Max Length*/
+Con_Special_Instructions VARCHAR(MAX) NOT NULL,/*Instructions Max Length*/
+Con_Signed_Client_Start CHAR(1) NOT NULL,/*Yes/No for choices*/
+Con_Signed_Contractor_Start CHAR(1) NOT NULL,
+Con_Signed_Client_Stop CHAR(1) NOT NULL,
+Con_Signed_Contractor_Stop VARCHAR(1) NOT NULL,
+Cli_ID INT FOREIGN KEY REFERENCES Clients(Cli_ID) ON UPDATE CASCADE
+);
+
+CREATE TABLE MOH(
+MOH_ID INT IDENTITY(1,1) PRIMARY KEY, 
+MOH_Name VARCHAR(255) NOT NULL,
+MOH_Type VARCHAR(45) NOT NULL,
+MOH_Price Decimal(9,2) NOT NULL,
+MOH_Quantity INT NOT NULL,
+MOH_Purchased_Date DATE NOT NULL, 
+Con_ID INT NOT NULL FOREIGN KEY REFERENCES Contracts(Con_ID) ON UPDATE CASCADE
+);
+
+CREATE TABLE TOH(
+TOH_ID INT IDENTITY(1,1) PRIMARY KEY, 
+TOH_Name VARCHAR(255) NOT NULL,
+TOH_Type VARCHAR(45) NOT NULL,
+TOH_Price Decimal(9,2) NOT NULL,
+TOH_Quantity INT NOT NULL,
+TOH_Purchased_Date DATE NOT NULL, 
+Con_ID INT NOT NULL FOREIGN KEY REFERENCES Contracts(Con_ID) ON UPDATE CASCADE
+);
+
+CREATE TABLE Contract_Materials (
+CoMa_id INT IDENTITY(1,1) PRIMARY KEY,
+CoMa_Name VARCHAR(255) NOT NULL,
+CoMa_Type VARCHAR(45) NOT NULL,
+CoMa_Quantity INT NOT NULL,
+CoMa_Price DECIMAL(9,2),
+CoMa_Purchased_Date DATE,
+MOH_id INT FOREIGN KEY REFERENCES MOH(MOH_id) ON UPDATE CASCADE
+);
+
+Create Table Contract_Tools(
+CoTo_ID INT IDENTITY(1,1)PRIMARY KEY,
+CoTo_Name VARCHAR(255) NOT NULL, 
+CoTo_Type VARCHAR(45) NOT NULL,
+CoTo_Price DECIMAL(9,2) NOT NULL, 
+CoTo_Quantity INT NOT NULL,
+CoTo_Purchased_Date DATE NOT NULL,
+TOH_ID INT FOREIGN KEY REFERENCES TOH(TOH_ID) ON UPDATE CASCADE
+);
+
+CREATE TABLE Employees( 
+Emp_ID INT IDENTITY(1,1) PRIMARY KEY,
+Emp_FName Varchar(35) NOT NULL,
+Emp_LName Varchar(35) NOT NULL,
+Emp_Address VARCHAR(255) NOT NULL, 
+Emp_City VARCHAR(35) NOT NULL,
+Emp_State VARCHAR(2) NOT NULL,
+Emp_Zip VARCHAR(5) NOT NULL,
+Emp_Email VARCHAR(100) NOT NULL,
+Emp_Phone_Area_Code VARCHAR(3)NOT NULL,
+Emp_Phone_Number VARCHAR(8) NOT NULL,
+Emp_Licensed CHAR(1),
+Emp_Sales_Rep CHAR(1),
+Sale_Commission_Type VARCHAR(100) FOREIGN KEY REFERENCES Sales_Commission_Rate(Sale_Commission_Type) ON UPDATE CASCADE
+);
+
+CREATE TABLE Job_Locations(
+Job_Locations_id INT IDENTITY(1,1) PRIMARY KEY,
+Job_Address VARCHAR(255) NOT NULL,
+Job_City VARCHAR(35) NOT NULL,
+Job_State VARCHAR(2) NOT NULL,
+Job_Zip VARCHAR(5) NOT NULL,
+Job_Special_Instructions VARCHAR(1000),
+Schedule_id INT NOT NULL FOREIGN KEY REFERENCES Schedules(Schedule_id) ON UPDATE CASCADE 
+); 
+
+CREATE TABLE Licenses(
+Lic_Num VARCHAR(11) NOT NULL PRIMARY KEY, 
+Lic_Type VARCHAR(45) NOT NULL,
+Lic_Expiration DATE NOT NULL, 
+Emp_ID INT FOREIGN KEY REFERENCES Employees(Emp_ID) ON UPDATE CASCADE
+);
+
+CREATE TABLE Payments(
+Payment_ID INT IDENTITY(1,1) PRIMARY KEY,
+Payment_Type VARCHAR(20) NOT NULL,
+First_Payment_Amount DECIMAL(9,2) NOT NULL,
+First_Payment_Date DATE NOT NULL,
+Second_Payment_Amount DECIMAL(9,2) NOT NULL,
+Second_Payment_Date DATE NOT NULL,
+Cli_ID INT NOT NULL Foreign KEY REFERENCES Clients(Cli_ID) ON UPDATE CASCADE
+);
+
+CREATE TABLE Contract_Schedules (  
+Total_Hours INT NOT NULL,
+Con_Id INT FOREIGN KEY(Con_Id) REFERENCES Contracts(Con_Id) ON UPDATE CASCADE,
+Emp_Id INT  FOREIGN KEY(Emp_Id) REFERENCES Employees(Emp_Id) ON UPDATE CASCADE,
+Schedule_Id INT FOREIGN KEY REFERENCES Schedules(Schedule_Id) ON UPDATE CASCADE
+); 
+
+/*Client Table Insert*/
+INSERT INTO Clients Values('Rob','Stagis','34 Plainer rd','Plainville','CT','06062','860','953-1344','Mr.');/*Contract 1*/
+INSERT INTO Clients Values('Susan','Widlak','226 Middle Town Rd','Berlin','CT','06037','860','518-0432','Ms.');/*Contract 2*/
+INSERT INTO Clients Values('Melisa','Widlak','88 Sunset Ave','Plainville','CT','06062','860','518-0792','Ms.');/*Contract 3*/
+INSERT INTO Clients Values('Jack','Rider','164 E Main St','Plainville','CT','06062','860','573-1131','Mr.');/*Contract 4*/
+INSERT INTO Clients Values('Shawn','Ruest','52 Lancaster','Bristol','CT','06010','860','712-6644','Mr.');/*Contract 5*/
+
+/*Sales_Commission_Rate Table Insert*/
+INSERT INTO Sales_Commission_Rate Values(50.00,'Flat Rate-Lead Found');
+
+/*Schedules Table Insert*/
+INSERT INTO Schedules Values('2017-01-02','2017-01-03','2017-02-03');
+
+/*Contracts Table Insert*/
+INSERT INTO  Contracts VALUES('JOB-RS-1','2020-4-11','2020-4-13','Deck Replacment','Use back door and key under blue rock','y','y','n','n',DEFAULT);
+
+/*MOH Table Insert*/
+INSERT INTO MOH Values('Floor board','Wood',5.00,5,'2020-04-11',1);
+
+/*TOH Table Insert*/
+INSERT INTO TOH Values('Floor Board','Wood',5.00,5,'2017-03-04',1);
+
+/*Contract_Materials Table Insert*/
+INSERT INTO Contract_Materials Values('Hammmer','Hardware',1,'19.99','2017-02-01',1);
+
+/*Contract_Tools Table Insert*/
+INSERT INTO Contract_Tools Values('Ballpin Hammer','Hammer',25.99,1,'2017-02-01',DEFAULT);
+
+/*Employees Table Insert*/
+INSERT INTO Employees Values('Ryan','Thorne','36 Lancaster RD','Bristol','CT','06010','thorne.spp@gmail.com','860','712-3277','y','y',DEFAULT);
+
+/*Contact_Schedules Insert*/
+INSERT INTO Contract_Schedules VALUES( 10 , DEFAULT, DEFAULT, DEFAULT);
+
+/*Job_Locations Table Insert*/
+INSERT INTO Job_Locations Values('78 Parse Rd.','Bristol','CT','06010','Paint the walls blue',1);
+
+/*Licenses Table Insert*/
+INSERT INTO Licenses Values('HIC-0678971','Home-Improvment-Contractors LIC','2018-11-01',DEFAULT);
+
+/*Payments Table Insert*/
+INSERT INTO Payments Values('Credit Card',50.00,'2017-04-11',50.00,'2017-05-02',1);
