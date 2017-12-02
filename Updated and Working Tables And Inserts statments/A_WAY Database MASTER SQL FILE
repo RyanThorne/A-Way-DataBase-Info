@@ -47,7 +47,7 @@ Con_Number VARCHAR(35) NOT NULL, /* Contract number is always different and coul
 Con_Date_Start DATE NOT NULL,
 Con_Date_End DATE NOT NULL,
 Con_Description VARCHAR(MAX) NOT NULL,/*Description Max Length*/
-Con_Special_Instructions VARCHAR(MAX) NOT NULL,/*Instructions Max Length*/
+Con_Special_Instructions VARCHAR(MAX),/*Instructions Max Length*/
 Con_Signed_Client_Start CHAR(1) NOT NULL,/*Yes/No for choices*/
 Con_Signed_Contractor_Start CHAR(1) NOT NULL,
 Con_Signed_Client_Stop CHAR(1) NOT NULL,
@@ -165,16 +165,16 @@ INSERT INTO  Contracts VALUES('JOB-SW-1','2017-5-13','2017-7-14','Floor Demo', N
 INSERT INTO  Contracts VALUES('JOB-MW-1','2016-4-16','2016-6-12','Window Replacment',NUll,'y','y','n','n',DEFAULT);
 INSERT INTO  Contracts VALUES('JOB-JR-1','2015-2-18','2015-8-16','Roof Patch','Level floor near window','n','n','n','n',DEFAULT);
 INSERT INTO  Contracts VALUES('JOB-SR-1','2015-4-19','2015-9-17','Rug Installation','Stretch stair runner','y','y','y','y',DEFAULT);
-/*MOH Table Insert*/
 
+/*MOH Table Insert*/
 INSERT INTO MOH Values('Floor board','Wood',5.12,5,'2017-04-11',1);
-INSERT INTO MOH Values('Sheet Rock','Drywall',10.05 2,'2010-02-11',3);
+INSERT INTO MOH Values('Sheet Rock','Drywall',10.05,2,'2010-02-11',3);
 INSERT INTO MOH Values('Plywood','Wood',17.99,4,'2020-05-11',4);
 INSERT INTO MOH Values('Windows','Vinyl',200.10, 2,'2013-11-22',3);
 INSERT INTO MOH Values('Flashing','Metal',25.13,10,'2010-07-13',5);
 INSERT INTO MOH Values('Drywall Screws 1" Box','Metal',28.00, 3 ,'2016-08-13',1);
 INSERT INTO MOH Values('Drywall Screws 1" Box','Metal', 25.00,1,'2011-04-11',2);
-INSERT INTO MOH Values('Framing nails' Box,'Metal',20.25,1,'2017-04-11',1);
+INSERT INTO MOH Values('Framing nails Box','Metal',20.25,1,'2017-04-11',1);
 
 /*TOH Table Insert*/
 INSERT INTO TOH Values('Floor Board','Wood',5.00,5,'2017-03-04',1);
