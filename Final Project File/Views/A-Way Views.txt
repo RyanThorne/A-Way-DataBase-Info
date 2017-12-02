@@ -12,8 +12,10 @@ Where Contract_Schedules.Emp_Id IS NOT NULL;/*Running this code i noticed our da
 Insert statments need fixing in Contract_Schedules? You Got This!*/ 
 */
 
-/*
-
+/*Join Contract_Schedules table to Employees table through Emp_ID
+SELECT *
+FROM Employees
+LEFT JOIN contract_schedules ON Employees.Emp_ID = contract_schedules.Emp_ID;
 */
 /*
 
