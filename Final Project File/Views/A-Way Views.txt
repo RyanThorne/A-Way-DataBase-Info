@@ -1,0 +1,29 @@
+Views For SQL 
+ /*
+
+Select TOP 10 * From TOH WHERE TOH_Price >= 200;
+
+*/ /*High Price Tools*/
+/*
+/*Insert Into Contract_Schedules Values(40,2,1,1);*/
+SELECT */*Used to View the entire data set of nulls*/
+FROM Contract_Schedules
+Where Contract_Schedules.Emp_Id IS NOT NULL;/*Running this code i noticed our data is wrong, and im unsure if we set it up write
+Insert statments need fixing in Contract_Schedules? You Got This!*/ 
+*/
+
+/*
+
+*/
+/*
+
+*/
+/*
+
+*/
+/*
+
+*/
+/*
+
+*/
