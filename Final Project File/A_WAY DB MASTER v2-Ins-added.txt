@@ -2,7 +2,7 @@ USE [A_WAY];
 
  /*.................../
  /..Ryan T & Ben D..../
- /..Version 2.0......./
+ /..Version 2.1......./
  /.Database Managment*/
 
 /*
@@ -144,8 +144,8 @@ Cli_ID INT Foreign KEY REFERENCES Clients(Cli_ID) ON UPDATE CASCADE
 
 CREATE TABLE Contract_Schedules (  
 Total_Hours INT NOT NULL,
-Con_Id INT FOREIGN KEY(Con_Id) REFERENCES Contracts(Con_Id) ON UPDATE CASCADE,
-Emp_Id INT  FOREIGN KEY(Emp_Id) REFERENCES Employees(Emp_Id) ON UPDATE CASCADE,
+Con_Id INT NOT NULL FOREIGN KEY(Con_Id) REFERENCES Contracts(Con_Id) ON UPDATE CASCADE,
+Emp_Id INT NOT NULL FOREIGN KEY(Emp_Id) REFERENCES Employees(Emp_Id) ON UPDATE CASCADE,
 Schedule_Id INT FOREIGN KEY REFERENCES Schedules(Schedule_Id) ON UPDATE CASCADE
 ); 
 
@@ -169,8 +169,8 @@ INSERT INTO  Contracts VALUES('JOB-SW-1','2017-5-13','2017-7-14','Floor Demo', '
 INSERT INTO  Contracts VALUES('JOB-MW-1','2016-4-16','2016-6-12','Window Replacment','NUll','y','y','n','n',3);
 INSERT INTO  Contracts VALUES('JOB-JR-1','2015-2-18','2015-8-16','Roof Patch','Level floor near window','n','n','n','n',4);
 INSERT INTO  Contracts VALUES('JOB-SR-1','2015-4-19','2015-9-17','Rug Installation','Stretch stair runner','y','y','y','y',5);
-/*MOH Table Insert*/
 
+/*MOH Table Insert*/
 INSERT INTO MOH Values('Floor board','Wood',5.12,5,'2017-04-11',1);
 INSERT INTO MOH Values('Sheet Rock','Drywall',10.05, 2,'2010-02-11',3);
 INSERT INTO MOH Values('Plywood','Wood',17.99,4,'2020-05-11',4);
@@ -209,7 +209,6 @@ INSERT INTO Contract_Materials Values('Plastic Drip Can','Interior',1,'15.99','2
 INSERT INTO Contract_Materials Values('25 Gallon Base','Exterior',1,'17.15','2015-04-01',5);
 INSERT INTO Contract_Materials Values('Concrete','Exterior',15,'11.29','2015-04-01',5);
 
-
 /*Contract_Tools Table Insert*/
 INSERT INTO Contract_Tools Values('Ballpin Hammer','Hammer',25.99,1,'2017-02-01',DEFAULT);
 INSERT INTO Contract_Materials Values('12 oz Trim Hammmer','Hand Tool',1,'19.99','2015-04-01',DEFAULT);
@@ -220,7 +219,7 @@ INSERT INTO Contract_Materials Values('Brad Nailer','Battery Electric',1,'219.99
 INSERT INTO Employees Values('Ryan','Thorne','36 Lancaster RD','Bristol','CT','06010','thorne.spp@gmail.com','860','712-3277','y','y',DEFAULT);
 
 /*Contact_Schedules Insert*/
-INSERT INTO Contract_Schedules VALUES( 15, DEFAULT, DEFAULT, DEFAULT);
+INSERT INTO Contract_Schedules VALUES( 15, 1, 1, DEFAULT);
 
 /*Job_Locations Table Insert*/
 INSERT INTO Job_Locations Values('78 Parse Rd.','Bristol','CT','06010','Sheet Rock Job',DEFAULT);
@@ -230,7 +229,7 @@ INSERT INTO Job_Locations Values('88 Sunset Ave','Plainville','CT','06062','cust
 INSERT INTO Job_Locations Values('164 E Main St','Plainville','CT','06062','Pore Sonet tubes for a deck',DEFAULT);
 
 /*Licenses Table Insert*/
-INSERT INTO Licenses Values('HIC-0678971','Home-Improvment-Contractors LIC','2018-11-01',DEFAULT);
+INSERT INTO Licenses Values('HIC-0678971','Home-Improvment-Contractors LIC','2018-11-01',1);
 
 /*Payments Table Insert*/
 INSERT INTO Payments Values('Credit Card',1000.00,'2017-04-11',1000.00,'2017-05-02',1);
