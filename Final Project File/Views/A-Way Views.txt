@@ -17,8 +17,10 @@ SELECT *
 FROM Employees
 LEFT JOIN contract_schedules ON Employees.Emp_ID = contract_schedules.Emp_ID;
 */
-/*
-
+/* Views for Totals hours work by Employees for each Contract
+Select A.Emp_FName, A.Emp_LName, B.Con_Number, C.Total_Hours, D.Date_Start
+From Contract_Schedules as C, Employees as A, Contracts as B, Schedules as D
+Where A.Emp_ID = C.Emp_ID and B.Con_ID = C.Con_ID and C.Schedule_id = D.Schedule_id; 
 */
 /*
 
