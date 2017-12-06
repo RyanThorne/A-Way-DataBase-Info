@@ -39,7 +39,7 @@ Sale_Commission_Type VARCHAR(100) NOT NULL PRIMARY KEY
 );
 
 CREATE TABLE Schedules (
-Schedule_id INT IDENTITY(1,1)PRIMARY KEY,
+Schedule_id INT IDENTITY(1,1) PRIMARY KEY,
 Date_Start DATE,
 Date_End DATE,
 Amended_Alt_Date DATE,
@@ -83,14 +83,14 @@ CREATE TABLE Contract_Materials (
 CoMa_id INT IDENTITY(1,1) PRIMARY KEY,
 CoMa_Name VARCHAR(255) NOT NULL,
 CoMa_Type VARCHAR(45) NOT NULL,
-CoMa_Quantity INT NOT NULL,
 CoMa_Price DECIMAL(9,2),
+CoMa_Quantity INT NOT NULL,
 CoMa_Purchased_Date DATE,
 MOH_id INT FOREIGN KEY REFERENCES MOH(MOH_id) ON UPDATE CASCADE
 );
 
 Create Table Contract_Tools(
-CoTo_ID INT IDENTITY(1,1)PRIMARY KEY,
+CoTo_ID INT IDENTITY(1,1) PRIMARY KEY,
 CoTo_Name VARCHAR(255) NOT NULL, 
 CoTo_Type VARCHAR(45) NOT NULL,
 CoTo_Price DECIMAL(9,2) NOT NULL, 
@@ -162,6 +162,10 @@ INSERT INTO Sales_Commission_Rate Values(00.10,'10 Percent on sales over $10,000
 
 /*Schedules Table Insert*/
 INSERT INTO Schedules Values('2017-01-02','2017-01-03','2017-02-03');
+INSERT INTO Schedules Values('2017-02-02','2017-06-03','2017-10-03');
+INSERT INTO Schedules Values('2017-03-02','2017-07-03','2017-11-03');
+INSERT INTO Schedules Values('2017-04-02','2017-08-03','2017-12-03');
+INSERT INTO Schedules Values('2017-05-02','2017-09-03','2017-12-04');
 
 /*Contracts Table Insert*/
 INSERT INTO  Contracts VALUES('JOB-RS-1','2020-4-11','2020-4-13','Deck Replacment','Use back door and key under blue rock','y','n','n','n',1);
@@ -176,9 +180,22 @@ INSERT INTO MOH Values('Sheet Rock','Drywall',10.05, 2,'2010-02-11',3);
 INSERT INTO MOH Values('Plywood','Wood',17.99,4,'2020-05-11',4);
 INSERT INTO MOH Values('Windows','Vinyl',200.10, 2,'2013-11-22',3);
 INSERT INTO MOH Values('Flashing','Metal',25.13,10,'2010-07-13',5);
-INSERT INTO MOH Values('Drywall Screws 1" Box','Metal',28.00, 3 ,'2016-08-13',1);
+INSERT INTO MOH Values('Drywall Screws 1" Box','Metal',28.00,3,'2016-08-13',1);
 INSERT INTO MOH Values('Drywall Screws 1" Box','Metal', 25.00,1,'2011-04-11',2);
 INSERT INTO MOH Values('Framing nails Box','Metal',20.25,1,'2017-04-11',1);
+INSERT INTO MOH Values('Drywall Sheet','Interior',10.09,0,'2015-04-01',1);
+INSERT INTO MOH Values('Drywall Rolls of Tape','Interior',10.99,0,'2015-04-01',1);
+INSERT INTO MOH Values('Compound Bags','Interior',13.99,0,'2015-04-01',1);
+INSERT INTO MOH Values('1x2x12 Plank Pine Board','Interior',13.99,0,'2015-07-07',2);
+INSERT INTO MOH Values('Vinyl Flooring Boxes','Interior',29.99,0,'2017-08-04',3);
+INSERT INTO MOH Values('Hardwood Flooring Boxes','Interior',63.99,0,'2017-08-04',3);
+INSERT INTO MOH Values('Vinyl VCT Overlay Roll','Interior',1000.00,0,'2017-08-04',3);
+INSERT INTO MOH Values('Siding Boxes','Exterior',99.99,0,'2017-08-04',3);
+INSERT INTO MOH Values('Wall Lags','Interior',13.79,0,'2017-09-04',4);
+INSERT INTO MOH Values('Wood Caps','Interior',00.19,0,'2017-09-04',4);
+INSERT INTO MOH Values('Plastic Drip Can','Interior',15.99,0,'2017-09-04',4);
+INSERT INTO MOH Values('25 Gallon Base','Exterior',17.15,0,'2015-04-01',5);
+INSERT INTO MOH Values('Concrete','Exterior',11.29,0,'2015-04-01',5);
 
 /*TOH Table Insert*/
 INSERT INTO TOH Values('Chop Saw','Chord Electric',219.99,1,'2015-03-04',1);
@@ -192,41 +209,49 @@ INSERT INTO TOH Values('Creeper Bar','Hand Tool',14.00,1,'2017-08-04',3);
 INSERT INTO TOH Values('Level','Scribe Tool',35.20,1,'2017-09-04',4);
 INSERT INTO TOH Values('Carpet Kicker','Carpet Tool',55.17,1,'2017-10-05',5);
 INSERT INTO TOH Values('Box of Pencils','Scribe Tool',99.00,1,'2017-10-05',5);
+INSERT INTO TOH Values('Ballpin Hammer','Hammer',0,25.99,'2017-02-01',2);
+INSERT INTO TOH Values('12 oz Trim Hammmer','Hand Tool',0,19.99,'2015-04-01',3);
+INSERT INTO TOH Values('Square Saw','Hand Tool',0,99.99,'2017-06-06',5);
+INSERT INTO TOH Values('Brad Nailer','Battery Electric',0,219.99,'2017-10-04',4);
 
 /*Contract_Materials Table Insert*/
-INSERT INTO Contract_Materials Values('Drywall Sheet','Interior',2,'10.09','2015-04-01',1);
-INSERT INTO Contract_Materials Values('Drywall Screws 5lb box','Interior',2,'39.99','2015-04-01',1);
-INSERT INTO Contract_Materials Values('Drywall Rolls of Tape','Interior',4,'10.99','2015-04-01',1);
-INSERT INTO Contract_Materials Values('Compund Bags','Interior',15,'13.99','2015-04-01',1);
-INSERT INTO Contract_Materials Values('1x2x12 Plank Pine Board','Interior',15,'13.99','2015-07-07',2);
-INSERT INTO Contract_Materials Values('Vinyl Flooring Boxes','Interior',29,'29.99','2017-08-04',3);
-INSERT INTO Contract_Materials Values('Hardwood Flooring Boxes','Interior',12,'63.99','2017-08-04',3);
-INSERT INTO Contract_Materials Values('Viynl VCT Overlay Roll','Interior',1,'1000.00','2017-08-04',3);
-INSERT INTO Contract_Materials Values('Siding Boxes','Exterior',2,'99.99','2017-08-04',3);
-INSERT INTO Contract_Materials Values('Wall Lags','Interior',3,'13.79','2017-09-04',4);
-INSERT INTO Contract_Materials Values('Wood Caps','Interior',40,'00.19','2017-09-04',4);
-INSERT INTO Contract_Materials Values('Plastic Drip Can','Interior',1,'15.99','2017-09-04',4);
-INSERT INTO Contract_Materials Values('25 Gallon Base','Exterior',1,'17.15','2015-04-01',5);
-INSERT INTO Contract_Materials Values('Concrete','Exterior',15,'11.29','2015-04-01',5);
+INSERT INTO Contract_Materials Values('Drywall Sheet','Interior',10.09,2,'2015-04-01',9);
+INSERT INTO Contract_Materials Values('Drywall Screws 1" Box','Metal', 25.00,3,'2011-04-11',7);
+INSERT INTO Contract_Materials Values('Drywall Rolls of Tape','Interior',10.99,4,'2015-04-01',10);
+INSERT INTO Contract_Materials Values('Compound Bags','Interior',13.99,15,'2015-04-01',11);
+INSERT INTO Contract_Materials Values('1x2x12 Plank Pine Board','Interior',13.99,15,'2015-07-07',12);
+INSERT INTO Contract_Materials Values('Vinyl Flooring Boxes','Interior',29.99,29,'2017-08-04',13);
+INSERT INTO Contract_Materials Values('Hardwood Flooring Boxes','Interior',63.99,12,'2017-08-04',13);
+INSERT INTO Contract_Materials Values('Vinyl VCT Overlay Roll','Interior',1000.00,1,'2017-08-04',14);
+INSERT INTO Contract_Materials Values('Siding Boxes','Exterior',99.99,2,'2017-08-04',15);
+INSERT INTO Contract_Materials Values('Wall Lags','Interior',13.79,3,'2017-09-04',16);
+INSERT INTO Contract_Materials Values('Wood Caps','Interior',00.19,40,'2017-09-04',17);
+INSERT INTO Contract_Materials Values('Plastic Drip Can','Interior',15.99,1,'2017-09-04',18);
+INSERT INTO Contract_Materials Values('25 Gallon Base','Exterior',17.15,1,'2015-04-01',19);
+INSERT INTO Contract_Materials Values('Concrete','Exterior',11.29,15,'2015-04-01',20);
 
 /*Contract_Tools Table Insert*/
-INSERT INTO Contract_Tools Values('Ballpin Hammer','Hammer',25.99,1,'2017-02-01',DEFAULT);
-INSERT INTO Contract_Materials Values('12 oz Trim Hammmer','Hand Tool',1,'19.99','2015-04-01',DEFAULT);
-INSERT INTO Contract_Materials Values('Square Saw','Hand Tool',1,'99.99','2017-06-06',DEFAULT);
-INSERT INTO Contract_Materials Values('Brad Nailer','Battery Electric',1,'219.99','2017-10-04',DEFAULT);
+INSERT INTO Contract_Tools Values('Ballpin Hammer','Hammer',25.99,1,'2017-02-01',12);
+INSERT INTO Contract_Tools Values('12 oz Trim Hammmer','Hand Tool',19.99,1,'2015-04-01',13);
+INSERT INTO Contract_Tools Values('Square Saw','Hand Tool',99.99,1,'2017-06-06',14);
+INSERT INTO Contract_Tools Values('Brad Nailer','Battery Electric',219.99,1,'2017-10-04',15);
 
 /*Employees Table Insert*/
-INSERT INTO Employees Values('Ryan','Thorne','36 Lancaster RD','Bristol','CT','06010','thorne.spp@gmail.com','860','712-3277','y','y',DEFAULT);
+INSERT INTO Employees Values('Ryan','Thorne','36 Lancaster RD','Bristol','CT','06010','thorne.spp@gmail.com','860','712-3277','y','y','Flat Rate-Lead Found');
 
 /*Contact_Schedules Insert*/
-INSERT INTO Contract_Schedules VALUES( 15, 1, 1, DEFAULT);
+INSERT INTO Contract_Schedules VALUES( 15, 1, 1, 1);
+INSERT INTO Contract_Schedules VALUES( 20, 2, 1, 2);
+INSERT INTO Contract_Schedules VALUES( 15, 3, 1, 3);
+INSERT INTO Contract_Schedules VALUES( 15, 4, 1, 4);
+INSERT INTO Contract_Schedules VALUES( 15, 5, 1, 5);
 
 /*Job_Locations Table Insert*/
-INSERT INTO Job_Locations Values('78 Parse Rd.','Bristol','CT','06010','Sheet Rock Job',DEFAULT);
-INSERT INTO Job_Locations Values('52 Lancaster Rd.','Bristol','CT','06010','Custom Shelf',DEFAULT);
-INSERT INTO Job_Locations Values('226 Middle Town Rd','Berlin','CT','06037','Flooring a Condo',DEFAULT);
-INSERT INTO Job_Locations Values('88 Sunset Ave','Plainville','CT','06062','custom TV Stand',DEFAULT);
-INSERT INTO Job_Locations Values('164 E Main St','Plainville','CT','06062','Pore Sonet tubes for a deck',DEFAULT);
+INSERT INTO Job_Locations Values('78 Parse Rd.','Bristol','CT','06010','Sheet Rock Job',1);
+INSERT INTO Job_Locations Values('52 Lancaster Rd.','Bristol','CT','06010','Custom Shelf',2);
+INSERT INTO Job_Locations Values('226 Middle Town Rd','Berlin','CT','06037','Flooring a Condo',3);
+INSERT INTO Job_Locations Values('88 Sunset Ave','Plainville','CT','06062','custom TV Stand',4);
+INSERT INTO Job_Locations Values('164 E Main St','Plainville','CT','06062','Pore Sonet tubes for a deck',5);
 
 /*Licenses Table Insert*/
 INSERT INTO Licenses Values('HIC-0678971','Home-Improvment-Contractors LIC','2018-11-01',1);
