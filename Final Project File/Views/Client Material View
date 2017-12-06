@@ -1,0 +1,11 @@
+Create view [Client_Material_View] AS
+SELECT        dbo.Clients.*, dbo.Contracts.Con_Number, dbo.Contracts.Con_Date_Start, dbo.Contracts.Con_Date_End, dbo.Contracts.Con_Description, dbo.MOH.MOH_Name, 
+                         dbo.MOH.MOH_Quantity, dbo.MOH.MOH_Purchased_Date, dbo.TOH.TOH_Name, dbo.TOH.TOH_Quantity, dbo.TOH.TOH_Purchased_Date, 
+                         dbo.Contract_Materials.CoMa_Name, dbo.Contract_Materials.CoMa_Quantity, dbo.Contract_Materials.CoMa_Purchased_Date, dbo.Contract_Tools.CoTo_Name, 
+                         dbo.Contract_Tools.CoTo_Quantity, dbo.Contract_Tools.CoTo_Purchased_Date
+FROM            dbo.Clients INNER JOIN
+                         dbo.Contracts ON dbo.Clients.Cli_ID = dbo.Contracts.Cli_ID INNER JOIN
+                         dbo.MOH ON dbo.Contracts.Con_ID = dbo.MOH.Con_ID INNER JOIN
+                         dbo.TOH ON dbo.Contracts.Con_ID = dbo.TOH.Con_ID INNER JOIN
+                         dbo.Contract_Materials ON dbo.MOH.MOH_ID = dbo.Contract_Materials.MOH_id INNER JOIN
+                         dbo.Contract_Tools ON dbo.TOH.TOH_ID = dbo.Contract_Tools.TOH_ID;
