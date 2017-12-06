@@ -1,0 +1,17 @@
+/*
+use [A_WAY];
+
+create View Employee_Con_Mtrl_Tools As 
+SELECT Contracts.Con_Number, Contracts.Con_Date_Start, Contracts.Con_Date_End, Contracts.Con_Special_instructions 
+,TOH.TOH_Name, TOH.TOH_Type, Contract_Tools.CoTo_Name, Contract_Tools.CoTo_Type,MOH.MOH_Name, MOH.MOH_Type, Contract_Materials.CoMa_Name, Contract_Materials.CoMa_Type 
+From Contracts, TOH, Contract_Tools, MOH , Contract_Materials 
+Where Contracts.Con_Id = TOH.Con_Id and TOH.TOH_id = Contract_Tools.TOH_id and MOH.Con_id= Contracts.Con_id and MOH.MOH_id = Contract_Materials.MOH_id;
+*/
+
+/*
+USE[A_WAY]; 
+SELECT Employees.Emp_ID,Employees.Emp_FName,Contract_Schedules.Total_Hours,Schedules.Date_Start,Schedules.Date_End
+FROM   Employees 
+join dbo.Contract_Schedules ON dbo.Contract_Schedules.Emp_Id = dbo.Employees.Emp_Id
+join dbo.Schedules ON dbo.Schedules.Schedule_ID = dbo.Contract_Schedules.Schedule_Id;
+*/
