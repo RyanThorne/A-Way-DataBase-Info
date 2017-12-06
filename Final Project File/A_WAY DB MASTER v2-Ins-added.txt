@@ -40,8 +40,8 @@ Sale_Commission_Type VARCHAR(100) NOT NULL PRIMARY KEY
 
 CREATE TABLE Schedules (
 Schedule_id INT IDENTITY(1,1)PRIMARY KEY,
-Start_Date DATE,
-Finish_Date DATE,
+Date_Start DATE,
+Date_End DATE,
 Amended_Alt_Date DATE,
 );
 
