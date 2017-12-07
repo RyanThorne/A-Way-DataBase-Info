@@ -1,33 +1,56 @@
-Views For SQL 
- /*
+Views for A_Way SQL Database
 
-Select TOP 10 * From TOH WHERE TOH_Price >= 200;
+ /*View List Index
+[Employee-Details]
+[Total-Hours]
+[Tools-in-Contract]
+[Tools-Brought]
+[Materials-in-Contract]
+[Materials-Brought]
+*/ 
 
-*/ /*High Price Tools*/
-/*
-/*Insert Into Contract_Schedules Values(40,2,1,1);*/
-SELECT */*Used to View the entire data set of nulls*/
-FROM Contract_Schedules
-Where Contract_Schedules.Emp_Id IS NOT NULL;/*Running this code i noticed our data is wrong, and im unsure if we set it up write
-Insert statments need fixing in Contract_Schedules? You Got This!*/ 
-*/
-
-/*Join Contract_Schedules table to Employees table through Emp_ID
-SELECT *
+/*View for Employees details including hours for each contract
+CREATE VIEW [Employee-Details] AS
+SELECT Employees.*, Contract_Schedules.Total_Hours, Contract_Schedules.Con_Id
 FROM Employees
 LEFT JOIN contract_schedules ON Employees.Emp_ID = contract_schedules.Emp_ID;
 */
-/* Views for Totals hours work by Employees for each Contract
-Select A.Emp_FName, A.Emp_LName, B.Con_Number, C.Total_Hours, D.Date_Start
+
+/* Views for Total hours work by Employees for each Contract
+CREATE VIEW [Total-Hours] AS
+Select A.Emp_FName, A.Emp_LName, B.Con_Number, C.Total_Hours, D.Date_Start, D.Date_End
 From Contract_Schedules as C, Employees as A, Contracts as B, Schedules as D
 Where A.Emp_ID = C.Emp_ID and B.Con_ID = C.Con_ID and C.Schedule_id = D.Schedule_id; 
 */
-/*
 
+/* View for Tools on Hand used in each Contract
+CREATE VIEW [Tools-in-Contract] AS
+SELECT A.Con_ID, TOH.TOH_Name, TOH.TOH_Type, TOH.TOH_Quantity, TOH.TOH_Price, TOH.TOH_Quantity*TOH.TOH_Price AS Total
+From Contracts as A, TOH
+Where TOH_Quantity >= 1;
 */
-/*
 
+/* View for Tools Brought for each Contract
+CREATE VIEW [Tools-Brought] AS
+SELECT A.Con_ID, B.CoTo_Name, B.CoTo_Type, B.CoTo_Quantity, B.CoTo_Price, B.CoTo_Quantity*B.CoTo_Price AS Total
+From Contracts as A
+LEFT JOIN TOH ON A.Con_ID = TOH.Con_ID
+LEFT JOIN Contract_Tools as B ON TOH.TOH_ID = B.TOH_ID
+Where CoTo_Quantity >= 1;
 */
-/*
 
+/* View for Materials on Hand used in each Contract
+CREATE VIEW [Materials-in-Contract] AS
+SELECT A.Con_ID, MOH.MOH_Name, MOH.MOH_Type, MOH.MOH_Quantity, MOH.MOH_Price, MOH.MOH_Quantity*MOH.MOH_Price AS Total
+From Contracts as A, MOH
+Where MOH_Quantity >= 1;
+*/
+
+/*
+CREATE VIEW [Materials-Brought] AS
+SELECT A.Con_ID, B.CoMa_Name, B.CoMa_Type, B.CoMa_Quantity, B.CoMa_Price, B.CoMa_Quantity*B.CoMa_Price AS Total
+From Contracts as A
+LEFT JOIN MOH ON A.Con_ID = MOH.Con_ID
+LEFT JOIN Contract_Materials as B ON MOH.MOH_ID = B.MOH_ID
+Where CoMa_Quantity >= 1;
 */
